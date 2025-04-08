@@ -17,8 +17,7 @@ if st.button("Generar títulos"):
         with st.spinner("Generando ideas virales..."):
 
             # Carga el generador de texto (modelo pequeño y gratuito)
-            generator = pipeline("text-generation", model="DeepESP/gpt2-spanish", max_length=60)
-
+            generator = pipeline("text-generation", model="datificate/gpt2-small-spanish", max_length=50)
             def generar_titulos(texto, n=5):
                 return [generator(f"Título viral: {texto}", max_length=50, do_sample=True)[0]['generated_text'].replace("Título viral: ", "") for _ in range(n)]
 
